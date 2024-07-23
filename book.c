@@ -146,6 +146,11 @@ int book_move(const board_t * board, bool random) {
           move_is_legal(move,board) &&
           score>10*option_get_int(Option,"BookTreshold")) {
 
+         // Set all scores to the same value if random is true, to get all moves equal chance of being selected. 
+         if (random) {
+            score = 1000;
+         }
+
          // pick this move?
 
          ASSERT(score>0);
